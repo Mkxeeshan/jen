@@ -6,7 +6,6 @@ pipeline {
             steps {
                 echo "Build the code using build automation tool Maven to compile and package the code "
             }
-            p
         }
         stage ("Unit & Integrationg Testing") { 
             steps {
@@ -14,7 +13,7 @@ pipeline {
             }
             post {
                 success {
-                    mail to: "muhammadbrind@gmail.com"
+                    mail to: "muhammadbrind@gmail.com",
                     subject: "Test stage completed",
                     body: " Successfully completed Testing stage"
                 }
@@ -32,7 +31,7 @@ pipeline {
 
             post {
                 success {
-                    mail to: "muhammadbrind@gmail.com"
+                    mail to: "muhammadbrind@gmail.com",
                     subject: "Security Scan stage completed",
                     body: " Successfully completed Security Scan stage"
                 }
