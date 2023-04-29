@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+    environment {
+        DIRECTORY_PATH = "/users/Khurram/documents/Task5.1"
+        TESTING_ENVIRONMENT = "Jenkins Assignment"
+        PRODUCTION_ENVIRONMENT = "Khurram"
+    }
+    stages {
+        stage ("Build") {
+            steps {
+                echo "Fetch the source code from the directory path: $DIRECTORY_PATH "
+                echo "Compile the code and generate any necessary artifacts"
+            }
+        }
+        stage ("Test") { 
+            steps {
+                echo "Unit Tests"
+                echo "Integration Tests"
+            }
+        }
+      stage ("Code Quality Check")  {
+            steps {
+                echo "Check the quality of the code"
+            }
+        }
+      stage ("Deploy") {
+            steps {
+                echo "Deploy the application to the testing environment $TESTING_ENVIRONMENT"
+            }
+        }
+      stage ("Approval") {
+            steps {
+                sleep 10
+            }
+        }
+      stage ("Deploy to Production") {
+            steps {
+                echo "Deploy the application to the production environment $PRODUCTION_ENVIRONMENT"
+            }
+      }
+    }
+}
