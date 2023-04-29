@@ -1,41 +1,54 @@
 pipeline {
     agent any
-    environment {
-        DIRECTORY_PATH = "/users/Khurram/documents/Task5.1"
-        TESTING_ENVIRONMENT = "Jenkins Assignment"
-        PRODUCTION_ENVIRONMENT = "Khurram"
-    }
+    
     stages {
         stage ("Build") {
             steps {
-                echo "Fetch the source code from the directory path: $DIRECTORY_PATH "
-                echo "Compile the code and generate any necessary artifacts"
+                echo "Build the code using build automation tool Maven to compile and package the code "
+            }
+            Post {
+                Success {
+                Mail to: “muhamadbrind@gmail.com”,
+                Subject: “ Test Stage Completed”
+                Body: “Successful in the test stage”
+                }
             }
         }
-        stage ("Test") { 
+        stage ("Unit & Integrationg Testing") { 
             steps {
-                echo "Unit Tests"
-                echo "Integration Tests"
+                echo "Run unit tests using Junit to ensure the code functions as expected and run integration tests using Citrus to ensure the different components of the application work together as expected"
             }
         }
-      stage ("Code Quality Check")  {
+      stage ("Code Analysis")  {
             steps {
-                echo "Check the quality of the code"
+                echo "Integrate code analysis tool FindBugs to analyse the code and ensure it meets industry standards"
             }
         }
-      stage ("Deploy") {
+      stage ("Security Scan") {
             steps {
-                echo "Deploy the application to the testing environment $TESTING_ENVIRONMENT"
+                echo "Perform a security scan on the code using Probely to identify any vulnerabilities"
+            }
+            Post {
+                Success {
+                Mail to: “muhamadbrind@gmail.com”,
+                Subject: “ Security Scan Stage Completed”
+                Body: “Successful in the Security Scan stage”
+                }
             }
         }
-      stage ("Approval") {
+      stage ("Deploy to Staging") {
             steps {
-                sleep 10
+                echo "Deploy the application to the staging server -AWS EC2 instance"
+            }
+        }
+      stage ("Integration Tests on Staging") {
+            steps {
+                echo "Run integration tests on the staging environment to ensure the application functions as expected in a production-like environment"
             }
         }
       stage ("Deploy to Production") {
             steps {
-                echo "Deploy the application to the production environment $PRODUCTION_ENVIRONMENT"
+                echo "Deploy the application to the production server- AWS EC2 instance"
             }
       }
     }
