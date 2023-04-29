@@ -8,7 +8,7 @@ pipeline {
             }
             Post {
                 Success {
-                Mail to: “muhamadbrind@gmail.com”,
+                Mail to: “muhammadbrind@gmail.com”,
                 Subject: “ Test Stage Completed”
                 Body: “Successful in the test stage”
                 }
@@ -30,7 +30,7 @@ pipeline {
             }
             Post {
                 Success {
-                Mail to: “muhamadbrind@gmail.com”,
+                Mail to: “muhammadbrind@gmail.com”,
                 Subject: “ Security Scan Stage Completed”
                 Body: “Successful in the Security Scan stage”
                 }
