@@ -24,7 +24,7 @@ pipeline {
                 echo "Integrate code analysis tool FindBugs to analyse the code and ensure it meets industry standards"
             }
         }
-      stage ("Security S can") {
+      stage ("Security Scan") {
             steps {
                 echo "Perform a security scan on the code using Probely to identify any vulnerabilities"
             }
