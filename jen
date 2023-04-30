@@ -19,7 +19,7 @@ pipeline {
                 }
             }
         }
-      stage ("Code An  alysis")  {
+      stage ("Code An --alysis")  {
             steps {
                 echo "Integrate code analysis tool FindBugs to analyse the code and ensure it meets industry standards"
             }
