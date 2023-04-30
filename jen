@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage ("B uild") {
+        stage ("Build") {
             steps {
                 echo "Build the code using build automation tool Maven to compile and package the code "
             }
@@ -19,7 +19,7 @@ pipeline {
                 }
             }
         }
-      stage ("Code Analysis")  {
+      stage ("Code An  alysis")  {
             steps {
                 echo "Integrate code analysis tool FindBugs to analyse the code and ensure it meets industry standards"
             }
