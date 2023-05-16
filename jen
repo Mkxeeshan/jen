@@ -15,7 +15,7 @@ pipeline {
                 success {
                     emailext attachLog: true,
                     to: "muhammadbrind@gmail.com",
-                    subject: "Test stage completed",
+                    subject: "Build # ${env.BUILD_NUMBER} - Successful",
                     body: " Successfully completed Testing stage"
                 }
             }
@@ -34,7 +34,7 @@ pipeline {
                 success {
                     emailext attachLog: true,
                     to: "muhammadbrind@gmail.com",
-                    subject: "Security Scan stage completed",
+                    subject: "Build # ${env.BUILD_NUMBER} - Successful",
                     body: " Successfully completed Security Scan stage"
                 }
             }
